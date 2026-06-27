@@ -1,0 +1,59 @@
+﻿<Window x:Class="ReportAutomation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Формирование отчётной документации" Height="520" Width="640"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Отчётный период"
+                   FontWeight="Bold" Margin="0,0,0,8"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+            <TextBlock Text="Дата начала:" Width="90" VerticalAlignment="Center"/>
+            <DatePicker x:Name="DatePeriodStart" Width="140" Margin="0,0,24,0"/>
+            <TextBlock Text="Дата окончания:" Width="110" VerticalAlignment="Center"/>
+            <DatePicker x:Name="DatePeriodEnd" Width="140"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="2" Text="Источники исходных данных"
+                   FontWeight="Bold" Margin="0,0,0,8"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Показатели:" Width="90" VerticalAlignment="Center"/>
+            <TextBox x:Name="TextIndicatorsFile" Width="360" IsReadOnly="True"
+                     Margin="0,0,8,0"/>
+            <Button Content="Выбрать..." Width="90" Click="SelectIndicatorsFile_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,0,0,16">
+            <TextBlock Text="Справочник:" Width="90" VerticalAlignment="Center"/>
+            <TextBox x:Name="TextDepartmentsFile" Width="360" IsReadOnly="True"
+                     Margin="0,0,8,0"/>
+            <Button Content="Выбрать..." Width="90" Click="SelectDepartmentsFile_Click"/>
+        </StackPanel>
+
+        <Button Grid.Row="5" x:Name="ButtonGenerate" Content="Сформировать отчёт"
+                Height="34" Width="200" HorizontalAlignment="Left"
+                Click="ButtonGenerate_Click" Margin="0,0,0,12"/>
+
+        <TextBlock Grid.Row="6" Text="Журнал операций"
+                   FontWeight="Bold" VerticalAlignment="Top"/>
+
+        <TextBox Grid.Row="6" x:Name="TextLog" Margin="0,24,0,0"
+                 IsReadOnly="True" VerticalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap" AcceptsReturn="True"/>
+
+        <TextBlock Grid.Row="7" x:Name="TextStatus" Text="Готово к работе"
+                   Margin="0,8,0,0"/>
+    </Grid>
+</Window>
